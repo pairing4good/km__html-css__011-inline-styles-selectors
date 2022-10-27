@@ -1,5 +1,9 @@
 The `index.html` file
-- should display an icon in the tab that points to https://images.squarespace-cdn.com/content/v1/61ddf7cb7f28032633f8dcef/65d5b3fb-ce52-45c6-a2c2-fba008a51af3/favicon.ico?format=100w
+- should style the span to be orange
+- should style the `<h1>` element to be grey
+- should style the element with the `green-text` class to be brown
+- should style the element with the `selector-id` id to be pink
 
 Resources:
-- https://www.w3schools.com/html/html_favicon.asp
+- https://www.w3schools.com/cssref/css_selectors.asp
+- https://www.w3schools.com/cssref/pr_text_color.asp

@@ -36,16 +36,46 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe('the webpage', () => {
-  it('should display an icon in the tab', async () => {
-      const type = await page.$eval('head > link[rel="icon"]', (link) => {
-        return link.getAttribute("type");
-      });
-      expect(type).toBe("image/x-icon");
+describe("the span", () => {
+  it("should be orange", async () => {
+    const color = await page.$eval("span[style]", (span) => {
+      const style = window.getComputedStyle(span);
+      return style.color;
+    });
+
+    expect(color).toEqual("rgb(255, 165, 0)");
+  });
+});
+
+describe('the <h1>', () => {
+  it('should be grey', async () => {
+    const color = await page.$eval("h1", (heading) => {
+      const style = window.getComputedStyle(heading);
+      return style.color;
+    });
+    
+    expect(color).toEqual('rgb(128, 128, 128)');
+  });
+});
+
+describe('the div with "brown-text" class', () => {
+  it('should be brown', async () => {
+    const color = await page.$eval('div[class="brown-text"]', (div) => {
+      const style = window.getComputedStyle(div);
+      return style.color;
+    });
       
-      const href = await page.$eval('head > link[rel="icon"]', (link) => {
-        return link.getAttribute("href");
-      });
-      expect(href).toBe("https://images.squarespace-cdn.com/content/v1/61ddf7cb7f28032633f8dcef/65d5b3fb-ce52-45c6-a2c2-fba008a51af3/favicon.ico?format=100w");
+    expect(color).toEqual('rgb(165, 42, 42)');
+  });
+});
+
+describe('the div with "selector-id" id', () => {
+  it('should be pink', async () => {
+    const color = await page.$eval('div[id="selector-id"]', (div) => {
+      const style = window.getComputedStyle(div);
+      return style.color;
+    });
+    
+    expect(color).toEqual('rgb(255, 192, 203)');
   });
 });
